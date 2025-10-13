@@ -5,7 +5,15 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        // Class: font-playfair (for headings/main text)
+        'playfair': ['"Playfair Display"', 'serif'],
+        
+        // Class: font-raleway (for body/sub text)
+        'raleway': ['Raleway', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
