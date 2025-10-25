@@ -78,10 +78,10 @@ const useScrollDirection = (threshold = 10) => {
 // --- Updated Placeholder Data (Unchanged) ---
 const navLinks = [
     { name: 'Home', href: '#' },
-    { name: 'Dr. Ankita', href: '#' },
+    { name: 'Blog', href: '#blog' },
     { name: 'Services', href: '#services' },
     { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#' },
+    { name: 'Contact', href: '#contact' },
 ];
 
 const detailServices = [
@@ -108,7 +108,7 @@ const detailServices = [
 ];
 
 const focusStats = [
-    { value: '12+', label: 'Years Experience', icon: Settings },
+    { value: '14+', label: 'Years Experience', icon: Settings },
     { value: '5K+', label: 'Successful Procedures', icon: CheckCircle },
 ];
 
@@ -192,7 +192,13 @@ const clinicLocationsData = [
         title: 'Salt Lake Clinic',
         address: 'ILS Hospitals, Salt lake, DD 6, Salt Lake Bypass, DD Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064',
     },
+    {
+        subtitle: 'Fertility clinic in New Town',
+        title: 'Maatritva Fertility IVF & Healthcare',
+        address: '1st Floor, Axis Mall Multi Complex Area, 01-0184, Plot no.CF/9, Newtown, Kolkata, West Bengal 700107',
+    },
 ];
+
 
 const mainClinicInfo = {
     header: 'Clinic Locations Of Dr Ankita Mandal',
@@ -761,10 +767,10 @@ const App = () => {
             </section>
             {/* END TESTIMONIALS SECTION */}
 
-            <section ref={blogRef} className="py-16 md:py-24 bg-white font-raleway">
+            <section id='blog' ref={blogRef} className="py-16 md:py-24 bg-white font-raleway">
                 <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
 
-                    {/* Unified Section Header */}
+                    {/* Section Header */}
                     <div className="text-center mb-12 lg:mb-16">
                         <p className="font-raleway text-sm uppercase tracking-widest text-blue-600 font-semibold mb-2">
                             Dr. Ankita's Resources
@@ -774,99 +780,91 @@ const App = () => {
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-                        {/* Main Left Article (Col-span 1) - TEXT SIZES INCREASED HERE */}
-                        <div className="lg:col-span-1">
-                            <h3 className="font-playfair text-2xl font-bold text-gray-800 mb-4 border-b pb-2 border-red-200">
-                                Featured Article
-                            </h3>
+                    {/* 4 Blog Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {[
+                            {
+                                title: "Comprehensive Guide to High-Risk Pregnancy Management",
+                                date: "Oct 25, 2024",
+                                readTime: "10 min",
+                                description: "This article covers advanced protocols and care strategies for high-risk obstetric cases handled by Dr. Mandal's team.",
+                                imageUrl: "https://cdn-jocll.nitrocdn.com/hQUgeajacjAkMrrMkoeDZXmZRJYVkPYl/assets/images/optimized/rev-2ac65ec/drankitamandal.com/wp-content/uploads/2023/07/Normal-Delivery-Ankita.png"
+                            },
+                            {
+                                title: "Understanding Common UTIs",
+                                date: "Oct 20, 2024",
+                                readTime: "5 min",
+                                description: "Learn about prevention, symptoms, and treatment options for urinary tract infections in women.",
+                                imageUrl: "https://cdn-jocll.nitrocdn.com/hQUgeajacjAkMrrMkoeDZXmZRJYVkPYl/assets/images/optimized/rev-2ac65ec/drankitamandal.com/wp-content/uploads/2023/07/Urinary-tract-infections.png"
+                            },
+                            {
+                                title: "The Truth About Home Pregnancy Tests",
+                                date: "Oct 15, 2024",
+                                readTime: "7 min",
+                                description: "Everything you need to know about accuracy, timing, and interpreting home pregnancy test results.",
+                                imageUrl: "https://cdn-jocll.nitrocdn.com/hQUgeajacjAkMrrMkoeDZXmZRJYVkPYl/assets/images/optimized/rev-2ac65ec/drankitamandal.com/wp-content/uploads/2023/07/Home-Pregnancy-Tests.png"
+                            },
+                            {
+                                title: "Why Minimal Access Surgery is the Future",
+                                date: "Oct 10, 2024",
+                                readTime: "8 min",
+                                description: "Discover the benefits of minimally invasive surgical techniques and faster recovery times.",
+                                imageUrl: "https://cdn-jocll.nitrocdn.com/hQUgeajacjAkMrrMkoeDZXmZRJYVkPYl/assets/images/optimized/rev-2ac65ec/drankitamandal.com/wp-content/themes/drankita/assets/images/resources/why-choose-img-1.jpg"
+                            },
+                        ].map((post, index) => (
                             <div
-                                className="bg-white rounded-xl shadow-lg overflow-hidden h-full
-                        transition-all duration-300 ease-in-out
-                        hover:shadow-2xl hover:scale-[1.02]"
+                                key={index}
+                                className="bg-white rounded-xl shadow-lg overflow-hidden
+                    transition-all duration-300 ease-in-out
+                    hover:shadow-2xl hover:scale-[1.02] h-full flex flex-col"
                             >
                                 <div className="relative overflow-hidden h-48">
                                     <img
-                                        src="https://cdn-jocll.nitrocdn.com/hQUgeajacjAkMrrMkoeDZXmZRJYVkPYl/assets/images/optimized/rev-2ac65ec/drankitamandal.com/wp-content/uploads/2023/07/Normal-Delivery-Ankita.png"
-                                        alt="High-Risk Pregnancy Management"
+                                        src={post.imageUrl}
+                                        alt={post.title}
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
-                                <div className="p-4">
-                                    <p className="font-raleway text-xs uppercase tracking-wider text-red-500 font-semibold mb-1">
-                                        10 min read | Oct 25, 2024
+                                <div className="p-5 flex flex-col flex-grow">
+                                    <p className="font-raleway text-xs uppercase tracking-wider text-red-500 font-semibold mb-2">
+                                        {post.readTime} read · {post.date}
                                     </p>
-
-                                    {/* INCREASED TITLE SIZE: from text-lg to text-xl (sm:text-2xl for responsiveness) */}
-                                    <h4 className="font-playfair text-xl sm:text-2xl font-extrabold text-gray-900 mb-3">
-                                        Comprehensive Guide to High-Risk Pregnancy Management
+                                    <h4 className="font-playfair text-lg sm:text-xl font-extrabold text-gray-900 mb-3 line-clamp-2">
+                                        {post.title}
                                     </h4>
-
-                                    {/* INCREASED DESCRIPTION SIZE: from text-sm to text-base */}
-                                    <p className="font-raleway text-base text-gray-600">
-                                        This article covers advanced protocols and care strategies for high-risk obstetric cases handled by Dr. Mandal's team.
+                                    <p className="font-raleway text-sm text-gray-600 mb-4 line-clamp-3 flex-grow">
+                                        {post.description}
                                     </p>
-
-                                    {/* Read More button text size remains appropriate */}
-                                    <a href="#" className="font-raleway inline-flex items-center text-blue-600 font-semibold mt-3 hover:text-red-500 transition duration-300">
+                                    <a
+                                        href="#"
+                                        className="font-raleway inline-flex items-center text-blue-600 text-sm font-semibold hover:text-red-500 transition duration-300 mt-auto"
+                                    >
                                         Read More
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="ml-1 w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-7a1 1 0 00-1 1v4a1 1 0 001 1h4a1 1 0 001-1v-4a1 1 0 00-1-1h-4z" /></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="ml-1 w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-7a1 1 0 00-1 1v4a1 1 0 001 1h4a1 1 0 001-1v-4a1 1 0 00-1-1h-4z" />
+                                        </svg>
                                     </a>
                                 </div>
                             </div>
-                        </div>
-
-                        {/* Right Articles (Col-span 2) - Remains the same (smaller) */}
-                        <div className="lg:col-span-2">
-                            <h3 className="font-playfair text-2xl font-bold text-gray-800 mb-4 border-b pb-2 border-red-200">
-                                Recent Insights
-                            </h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                {[
-                                    { title: "Understanding Common UTIs", date: "Oct 20, 2024", readTime: "5 min", imageUrl: "https://cdn-jocll.nitrocdn.com/hQUgeajacjAkMrrMkoeDZXmZRJYVkPYl/assets/images/optimized/rev-2ac65ec/drankitamandal.com/wp-content/uploads/2023/07/Urinary-tract-infections.png" },
-                                    { title: "The Truth About Home Pregnancy Tests", date: "Oct 15, 2024", readTime: "7 min", imageUrl: "https://cdn-jocll.nitrocdn.com/hQUgeajacjAkMrrMkoeDZXmZRJYVkPYl/assets/images/optimized/rev-2ac65ec/drankitamandal.com/wp-content/uploads/2023/07/Home-Pregnancy-Tests.png" },
-                                    { title: "Why Minimal Access Surgery is the Future", date: "Oct 10, 2024", readTime: "8 min", imageUrl: "https://cdn-jocll.nitrocdn.com/hQUgeajacjAkMrrMkoeDZXmZRJYVkPYl/assets/images/optimized/rev-2ac65ec/drankitamandal.com/wp-content/themes/drankita/assets/images/resources/why-choose-img-1.jpg" },
-                                ].map((post, index) => (
-                                    <div
-                                        key={index}
-                                        className="bg-white rounded-xl shadow-md overflow-hidden
-                                transition-all duration-300 ease-in-out
-                                hover:shadow-xl hover:scale-[1.02] h-full"
-                                    >
-                                        <div className="relative overflow-hidden">
-                                            <img src={post.imageUrl} alt={post.title} className="w-full object-cover h-32"/>
-                                        </div>
-                                        <div className="p-4">
-                                            <p className="font-raleway text-xs uppercase tracking-wider text-red-500 font-semibold mb-1">
-                                                {post.readTime} read · {post.date}
-                                            </p>
-                                            <h5 className="font-playfair text-base font-extrabold text-gray-900 line-clamp-2 mb-2">{post.title}</h5>
-                                            <a href="#" className="font-raleway inline-flex items-center text-blue-600 text-sm font-semibold hover:text-red-500 transition duration-300">
-                                                Read Article
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="ml-1 w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4-7a1 1 0 00-1 1v4a1 1 0 001 1h4a1 1 0 001-1v-4a1 1 0 00-1-1h-4z" /></svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                ))}
-
-                            </div>
-                        </div>
+                        ))}
                     </div>
 
-                    {/* Simple Button centered below the main grid */}
+                    {/* Explore All Button */}
                     <div className="text-center mt-12">
                         <a
                             href="#"
                             className="font-raleway px-8 py-3 bg-red-600 text-white font-semibold rounded-full shadow-lg
-                           hover:bg-red-700 transition duration-300 inline-flex items-center"
+               hover:bg-red-700 transition duration-300 inline-flex items-center"
                         >
                             Explore All Articles
-                            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
                         </a>
                     </div>
                 </div>
             </section>
+
 
             {/* END BLOG/NEWS SECTION */}
 
@@ -876,20 +874,20 @@ const App = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
 
                     {/* Section Header */}
-                    <div className="text-center mb-12 lg:mb-16">
+                    <div className="text-center mb-8 lg:mb-12">
                         <p className="font-raleway text-sm uppercase tracking-widest text-blue-600 font-semibold mb-2">
                             {mainClinicInfo.header}
                         </p>
                         <h2 className="font-playfair text-3xl sm:text-4xl font-extrabold text-gray-800">
                             <span className="text-blue-600">{mainClinicInfo.title.split(' ')[0]}</span> {mainClinicInfo.title.split(' ').slice(1).join(' ')}
                         </h2>
-                        <p className="font-raleway text-lg text-gray-600 max-w-3xl mx-auto mb-12 mt-8">
+                        <p className="font-raleway text-base text-gray-600 max-w-3xl mx-auto mb-8 mt-4">
                             {mainClinicInfo.description}
                         </p>
                     </div>
 
-                    {/* Clinic Cards Grid */}
-                    <div ref={clinicRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {/* Clinic Cards Grid - 2x2 layout for 4 cards */}
+                    <div ref={clinicRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 max-w-5xl mx-auto">
                         {clinicLocationsData.map((clinic, index) => (
                             <div key={index}>
                                 <ClinicCard {...clinic} delayIndex={index} />
@@ -899,10 +897,11 @@ const App = () => {
 
                 </div>
             </section>
+
             {/* END CLINIC LOCATIONS SECTION */}
 
             {/* 5. About Dr. Ankita Mandal (Unchanged logic) */}
-            <section ref={aboutRef} className="bg-gray-50 text-gray-900 py-20 px-4 sm:px-8 lg:px-16 overflow-hidden">
+            <section id='contact' ref={aboutRef} className="bg-gray-50 text-gray-900 py-20 px-4 sm:px-8 lg:px-16 overflow-hidden">
                 <div
                     className={`max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 transition-all duration-1000 ease-out ${isAboutVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                     style={{ transitionDelay: '0ms' }}
@@ -972,7 +971,7 @@ const App = () => {
                                 </li>
                                 <li className="font-raleway text-base text-gray-700 flex items-start space-x-3">
                                     <Phone size={20} className="text-blue-500 flex-shrink-0 mt-0.5" />
-                                    <a href="tel:+919876543210" className="hover:text-blue-600 transition">+91-98765-43210 (Direct Line)</a>
+                                    <a href="tel:+91 89021 35575 " className="hover:text-blue-600 transition">+91-98765-43210 (Direct Line)</a>
                                 </li>
                                 <li className="font-raleway text-base text-gray-700 flex items-start space-x-3">
                                     <ClipboardList size={20} className="text-orange-500 flex-shrink-0 mt-0.5" />
