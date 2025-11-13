@@ -7,11 +7,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        // Class: font-playfair (for headings/main text)
-        'playfair': ['"Playfair Display"', 'serif'],
+        // Class: font-worksans (for general/clean text)
+        'worksans': ['"Work Sans"', 'sans-serif'],
         
-        // Class: font-raleway (for body/sub text)
-        'raleway': ['Raleway', 'sans-serif'],
+        // Class: font-montserrat (for accent/special text)
+        'montserrat': ['Montserrat', 'sans-serif'],
       },
     },
   },
